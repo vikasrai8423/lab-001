@@ -1,0 +1,21 @@
+1  apt update -y
+    2  apt upgrade -y
+    3  apt install git -y
+    4  git --version
+    5  git clone https://github.com/RaviShiv789/jenkins.git
+    6  ls
+    7  cd jenkins/
+    8  ls
+    9  vim program.html
+   10  apt install vim
+   11  vim program.html
+   12  cat program.html 
+   13  git add -A
+   14  git commit -m "1.0"
+   15  git config --global user.email "ravi60595@gmail.com"
+   16  git config --global user.name "RaviShiv789"
+   17  git commit -m "1.0"
+   18  git push -u origin master
+   19  ls
+   20  history
+

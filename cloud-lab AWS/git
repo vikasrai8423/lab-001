@@ -1,0 +1,25 @@
+mkdir gitlab1
+ls
+cd gitlab1
+pwd
+git clone https://github.com/RaviShiv789/gitlab.git    (after login to github)
+ls
+cd gitlab/
+la
+touch file{1..3}
+git add -A
+git commit -m "assignment"
+git push -u origin master
+
+
+
+Git Command
+ 
+git branch
+git branch dev
+git branch
+git checkout dev
+git branch
+ls
+history
+git status

@@ -1,0 +1,24 @@
+cd day2
+cd day2/
+vim p1.py
+python3 p1.py
+vim Dockerfile
+docker build -t myp1:1.0 .
+docker run --name day1 -ti myp1:1.0
+docker images
+docker run --name p2 myp2:1.0
+docker rm web5
+docker run --name web5 -ti  myp1:1.0
+
+
+vim Dockerfile
+..............................................
+
+FROM ubuntu
+RUN apt update -y
+RUN apt upgrade -y
+RUN apt install python3 -y
+RUN mkdir /test
+COPY . /test/
+CMD ["python3","/test/p1.py"]
+

@@ -1,0 +1,6 @@
+create bucket --> bucket name (230340127013) --> untick block all public acces --> tick on acknowledge --> create bucket --> select the bucket name (230340127013) --> click upload --> add file --> upload
+go to the bucket object --> bucket properties --> static website hosting --> select enable --> host a static website --> index document (index.html) --> save changes
+go to permission --> bucket policy --> edit --> click on add a new statement --> json format will show in policy --> in "sid" "this website is demo purpose",  --> "princple" : "*" --> add action --> search S3 select S3 -->
+select all action S3 --> copy the bucket ARN --> "Resource" : "paste bucket ARN/*"  --> click on save changes
+
+now copy the url and search on google output will show  

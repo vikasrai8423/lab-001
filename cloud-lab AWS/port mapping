@@ -1,0 +1,39 @@
+ubuntu local host using external browser port mapping
+
+
+docker ps
+docker run --name u6 -ti -p 9000:80 ubuntu
+apt update -y
+apt upgrade -y
+ apt install apache 2
+ apt install apache2 -y
+ apt install systemctl -y
+ systemctl start apache2
+ systemctl status apache2
+ systemctl enable apache2
+ apt install curl
+ curl http://localhost
+ cd /var/html/
+ ls
+ cd /var/www/html/
+ ls
+ rm -rf index.html
+ apt install vim -y
+ vim index.html
+ curl http://localhost
+ copy ip of machine with port number paste on chrome
+ 
+ 
+ 
+ 
+ Git Command
+ 
+git branch
+git branch dev
+git branch
+git checkout dev
+git branch
+ls
+history
+git status
+

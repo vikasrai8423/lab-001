@@ -1,0 +1,50 @@
+AWS Lambda Steps:-
+,,,,,,,,,,,,,,,,,,,,,
+
+
+first search IAM 
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+access management ---> role
+create role
+AWS service
+select Lambda --> next
+Role Name- lambda_cloudwatch_role
+create role 
+again go and create role 
+AWS service --> lambda --> next
+
+search SNS 
+select Amazon SNS full access --> next
+Role Name --> lambda_sns_role
+create role
+
+search S3 and open in new tab
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+create bucket
+bucket name --> vikas-rai-mys3
+AWS region
+select unblock --> and select acknowledge
+create bucket  (file uploading will be done in last)
+
+search Lambda and open in new tab
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+create function --> select Author from scratch
+function name -->
+select python 3.7
+permission --> select use an existing role
+select -->lamdacloudwatch
+create function
+
+search SNS and open in new tab
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+dashboard --> topics --> create topic --> select standard --> name (mytopic)--> create topic --> subscription --> create subscription --> protocol select (email) --> end point (vikasrai84233@gmail.com)
+--> create subscription --> status pending --> go to email --> confirm subscription --> go to SNS and refresh --> now status will show confirm
+
+Got to lamda function --> add trigger --> select S3 --> bucket (vikas-raimy) --> prefix, suffix (.pdf,.jpg) --> select i acknowledge --> add destination --> source asynchronous invocation --> select on succes 
+--> SNS topic --> destination select (mytopic) --> save
+
+now go to S3 --> upload --> add file --> open --> upload --> go to the mail and see the log

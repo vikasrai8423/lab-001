@@ -1,0 +1,38 @@
+Docker using login and push using docker login
+
+
+docker pull nginx
+apt install docker* -y
+docker login
+mkdir testdocker pull nginx
+apt install docker* -y
+docker login
+mkdir test
+ls
+cd test/
+vim p1.py
+Vim Dockerfile
+apt install vim
+vi Dockerfile
+docker build -t img1:1 .
+docker images
+docker tag img1:1 cdacacts/classtest
+docker push cdacacts/classtest
+docker save > lab.tar
+ls
+apt install ssh* -y
+scp lab.tar node3@192.168.20.172:/home/node3
+
+
+Vim Dockerfile
+FROM nginx
+RUN apt update -y
+RUN apt upgrade -y
+RUN apt install python3 -y
+RUN mkdir /test1
+COPY . /test1/
+CMD ["python3","/test1/p1.py"]
+
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+

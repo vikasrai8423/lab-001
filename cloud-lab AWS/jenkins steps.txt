@@ -1,0 +1,136 @@
+NODE-1
+,,,,,,,,,,,,,,,,
+
+apt install git -y
+git --version
+
+go to github and login --> create a repository  --> new --> Repository name (jenkins-docker1) --> add README --> create --> code --> copy the link
+
+git clone (paste the copy link )
+ls
+cd jenkins-docker1/
+ls {README.md will show}
+echo "hi.. jenkins-docker CICD pipeline Demo" > index.html
+cat index.html
+git add -A
+git commit -m "1.0"
+
+if error show than
+git conif --global user.email "vikasrai8423@gmail.com"
+
+git push -u origin master
+
+username- vikasrai8423
+password - paste the copy token
+
+
+NODE-2
+,,,,,,,,,,,,,,,,,,,,,
+go to google search installation of jenkins on Ubuntu
+
+step1- wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key |sudo gpg --dearmor -o /usr/share/keyrings/jenkins.gpg
+step2- sudo sh -c 'echo deb [signed-by=/usr/share/keyrings/jenkins.gpg] http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+
+apt update -y
+
+apt install openjdk-11-jre -y
+
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+apt-get install jenkins 
+systemctl status jenkins
+systemctl enable jenkins
+
+ip a
+
+on google search --> http://192.168.20.154:8080 --> unlock jenkins  --> paste the password from cat /var/lib/jenkins/secrets/initial Admin password
+cat /var/lib/jenkins/secrets/initial Admin password
+password--
+
+install suggested plugins --> getting started --> if failed click retry --> if all plugins installed  --> username (jenkins)  --> password (jenkins)
+--> jenkins --> jenkins@gmail.com --> save and continue --> jenkins url --> save and finish --> start using jenkins --> welcome to jenkins --> create job
+
+enter item naame (first-job)  --> select freestyle --> ok --> General --> tick on Github project --> in project url paste the git hub http code (.git must be removed) --> 
+--> source code management --> select git --> Repository url paste here --> credential (none-public) --> branches to build */master --> build steps --> apply and save 
+
+
+NODE-2
+,,,,,,,,,,,,,,,,,
+
+apt install git docker* ssh -y
+cd /var/lib/jenkins/workspace/
+ls (first-job will show)
+cd first-job
+ls (index.html README.md)
+vi Dockerfile
+{FROM nginx
+COPY . usr/share/nginx/html/
+}
+ls
+
+go to google search --> jenkin failed to read the password in execute shell
+copy --> jenkins ALL = NOPASSWD: ALL  --> paste in vim /etc/sudoers
+
+vi /etc/sudoers
+root ALL =(ALL:ALL) ALL
+jenkins ALL = NOPASSWD: ALL
+
+
+go to jenkins 
+
+click on +new item
+enter an item name (second-job) --> select freestyle --> click ok --> build trigger (select Build after other projects are build) --> projects to watch select first-job, (reduce the space after,) -->
+--> build steps select execute shell  --> 
+cd /var/lib/jenkins/workspace/first-job/
+sudo docker build -t myweb:1.0 .
+sudo docker save myweb:1.0 > myweb.tar
+
+apply --> save
+
+click on +new item
+enter an item name (final-job) --> select freestyle --> click ok --> build trigger (select Build after other projects are build) --> projects to watch select second-job, (reduce the space after,) -->
+--> build steps select execute shell  --> 
+cd /var/lib/jenkins/workspace/first-job/
+scp myweb.tar vm3@192.168.20.155:/home/vm3                                                        ip is of vm3
+ssh vm3@192.168.20.155 "sudo docker load < myweb.tar"
+ssh vm3@192.168.20.155 "sudo docker rm -f web1"
+ssh vm3@192.168.20.155 "sudo docker run --name web1 -d -p 9000:80 myweb:1.0"
+
+
+go to node 2
+,,,,,,,,,,,,,,,,,,
+
+su -s /bin/bash jenkins
+ssh-keygen
+enter three times
+ssh-copy-id vm3@192.168.20.155
+password of vm3
+ssh vm3@192.168.20.155
+exit
+
+NODE-3
+,,,,,,,,,,,,,,
+
+apt install docker* -y
+systemctl start docker 
+systemctl enable docker
+vim /etc/sudoers
+%sudo ALL=(ALL:ALL) NOPASSWD: ALL                           --> NOPASSWD: is added
+docker images
+docker ps
+ls -ll /home/vm3/
+ls /home/vm3  --> (my web.tar)
+
+
+
+on google search 192.168.20.155:9000
+
+
+
+
+

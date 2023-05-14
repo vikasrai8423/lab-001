@@ -1,0 +1,39 @@
+Cretae a python image with user show on web page Using httpd:----
+
+ mkdir web1
+ cd web1/
+ vim index.html
+ cat index.html
+ vim Dockerfile
+ cat Dockerfile
+ docker build -t httpd:1.0 .
+ docker run --name web1 -p 9090:80 -d httpd:1.0
+ ls
+ ip a
+ 
+ Copy ip with port and show web
+ 
+ 
+ Vim Dockerfile  ;;;;;;;;;  in httpd"
+ 
+FROM httpd
+COPY . /usr/local/apache2/htdocks/
+
+
+ Vim Dockerfile  ;;;;;;;;;  in nginx
+ .........................................
+ 
+ FROM nginx
+ COPY . /usr/share/nginx/html/
+ 
+ 
+ Vim Dockerfile  ;;;;;;;;;  in nginx
+ .......................................
+ FROM python
+ RUN apt update -y
+ RUN apt upgrade -y
+ RUN apt install pyrhon3 -y
+ RUN mkdir /test1
+ COPY . /test1/
+ CMD ["python3","/test1/prog.py"]
+ 
