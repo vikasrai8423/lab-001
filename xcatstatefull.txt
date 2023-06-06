@@ -1,0 +1,304 @@
+[root@master x86_64]# history
+    1  ip a
+    2  dhclient
+    3  ip a
+    4  systemctl restart NetworkManager
+    5  ip a
+    6  nmtui
+    7  ip a
+    8  wget www.google.com
+    9  cat /etc/resolv.conf 
+   10  ip a
+   11  vim /etc/resolv.conf 
+   12  ip 
+   13  IP 
+   14  ip a
+   15  vim /etc/resolv.conf 
+   16  systemctl restart NetworkManager
+   17  systemctl restart network
+   18  vim /etc/resolv.conf 
+   19  systemctl restart NetworkManager
+   20  systemctl restart network
+   21  ip a
+   22  dhclient
+   23  dhclient -r
+   24  ip a
+   25  dhclient -r
+   26  ip a
+   27  init 6
+   28  dhclient
+   29  ip a
+   30  curl google.com
+   31  cat /etc/resolv.conf 
+   32  ip a
+   33  curl google.com
+   34  wget google.com
+   35  curl google.com
+   36  vim /etc/resolv.conf 
+   37  curl google.com
+   38  systemctl restart network
+   39  curl google.com
+   40  vim /etc/resolv.conf 
+   41  systemctl restart network
+   42  ip a
+   43  dhclient
+   44  dhclient -r
+   45  ip a
+   46  killall dhclient
+   47  dhclient
+   48  ip a
+   49  systemctl restart NetworkManager
+   50  ip a
+   51  curl google.com
+   52  ip a
+   53  cat /etc/resolv.conf 
+   54  vim /etc/resolv.conf 
+   55  curl google.com
+   56  ip a
+   57  curl google.com
+   58  wget google.com
+   59  ip a
+   60  dhclient
+   61  dhclient -r
+   62  ip a
+   63  dhclient -a
+   64  dhclient -l
+   65  ip a
+   66  dhclient
+   67  ip a
+   68  wget google.com
+   69  ip 
+   70  ip a
+   71  systemctl restart network
+   72  ip a
+   73  nmtui
+   74  dhclient
+   75  ip a
+   76  systemctl restart network
+   77  ip a
+   78  ifup ens33
+   79  ip a
+   80  ifup ens34
+   81  ip a
+   82  vi /etc/hosts
+   83  hostname
+   84  vi /etc/hosts
+   85  hostname
+   86  vi /etc/hosts
+   87  systemctl stop firewalld
+   88  systemctl disable firewalld
+   89  vi /etc/selinux/config 
+   90  reboot
+   91  systemctl status firewalld
+   92  getenforce
+   93  hostnamectl set-hostname master
+   94  hostname
+   95  vi /etc/hosts
+   96  reboot
+   97  cat /etc/passwd
+   98  yum -y install yum-utils
+   99  yum install epel-release
+  100  wget -P /etc/yum.repos.d https://xcat.org/files/xcat/repos/yum/latest/xcat-core/xcat-core.repo
+  101  --no-check-certificate
+  102  wget -P /etc/yum.repos.d https://xcat.org/files/xcat/repos/yum/latest/xcat-core/xcat-core.repo --no-check-certificate
+  103  wget -P /etc/yum.repos.d https://xcat.org/files/xcat/repos/yum/xcat-dep/rh7/x86_64/xcat-dep.repo
+  104  wget -P /etc/yum.repos.d https://xcat.org/files/xcat/repos/yum/xcat-dep/rh7/x86_64/xcat-dep.repo --no-check-certificate
+  105  yum install xCAT
+  106  cd /etc/profile.d/
+  107  ls
+  108  cat xcat.sh 
+  109  source xcat.sh
+  110  lsdef
+  111  tabdump site
+  112  cd
+  113  lsdef
+  114  lsxcatd -v
+  115  tabdump site
+  116  cat /etc/profile.d/xcat.sh
+  117  ip a
+  118  chdef -t site dhcpinterfaces=ens34
+  119  tabdump site | grep dhcp
+  120  #dd if=/dev/sr0 of=centos.iso
+  121  lsblk
+  122  dd if=/dev/sr0 of=centos.iso
+  123  ls
+  124  lsdef -t osimage
+  125  copycds centos.iso 
+  126  lsdef -t osimage
+  127  cd /install/centos7.9/x86_64/
+  128  ls
+  129  cd
+  130  lsdef -t osimage
+  131  cd /install/centos7.9/x86_64/
+  132  genimage centos7.9-x86_64-netboot-compute
+  133  df -TH
+  134  cd /install/netboot/centos7.9/x86_64/compute/
+  135  ls
+  136  cd rootimg/
+  137  ls
+  138  cd
+  139  mkdir -p /install/custom/netboot
+  140  chdef -t osimage -o centos7.9-x86_64-netboot-compute synclists="/install/custom/netboot/compute.synclist"
+  141  echo "/etc/passwd -> /etc/passwd" > /install/custom/netboot/compute.synclist
+  142  echo "/etc/group -> /etc/group" >> /install/custom/netboot/compute.synclist
+  143  echo "/etc/shadow -> /etc/shadow" >> /install/custom/netboot/compute.synclist
+  144  cat /install/custom/netboot/compute.synclist 
+  145  lsdef -t osimage
+  146  packimage centos7.9-x86_64-netboot-compute
+  147  mkdef -t node xcat-node1 groups=compute,all ip=10.10.10.3 mac=00:0C:29:DB:D6:11 netboot=xnba
+  148  lsdef xcat-node1
+  149  chdef -t site domain=cdac.in
+  150  tabdump site | grep domain
+  151  cat /etc/hosts
+  152  makehosts
+  153  cat /etc/hosts
+  154  vim /etc/hosts
+  155  cat /etc/hosts
+  156  makenetworks
+  157  makedhcp -n
+  158  cat /etc/dhcp/dhcpd.conf
+  159  makedhcp -n
+  160  vim /etc/dhcp/dhcpd.conf
+  161  tabdump site
+  162  makenetworks 
+  163  makedhcp -n
+  164  makedhcp -a
+  165  systemctl status dhcpd
+  166  ip a
+  167  nmtui
+  168  ip a
+  169  makenetworks 
+  170  makedhcp -n
+  171  vim /etc/dhcp/dhcpd.conf
+  172  cat /etc/dhcp/dhcpd.conf
+  173  cat /etc/dhcp/dhcpd.conf | grep "10.10.10.3"
+  174  cat /etc/dhcp/dhcpd.conf | grep "10.10.10.2"
+  175  ip a
+  176  makedns -n
+  177  nodeset compute osimage=centos7.9-x86_64-netboot-compute
+  178  ip a
+  179  ifup ens34
+  180  ip a
+  181  makedns
+  182  tabdump site
+  183  lsdef
+  184  lsdef xcat-node1
+  185  cat /install/custom/netboot/compute.synclist 
+  186  cd /install/netboot/centos7.9/x86_64/compute/rootimg/
+  187  ls
+  188  export CHROOT=/install/netboot/centos7.9/x86_64/compute/rootimg/
+  189  echo $CHROOT
+  190  chroot /install/netboot/centos7.9/x86_64/compute/rootimg/
+  191  lsdef -t osimage
+  192  exit
+  193  export CHROOT=/install/netboot/centos7.9/x86_64/compute/rootimg/
+  194  chroot $CHROOT 
+  195  cd /
+  196  ll
+  197  ssh xcat-node1
+  198  cd
+  199  ssh xcat-node2
+  200  ssh xcat-node1
+  201  ssh xcat-node2
+  202  ping xcat-node1
+  203  ping xcat-node2
+  204  systemctl status sshd
+  205  ssh xcat-node2
+  206  lsdef -t osimage
+  207  packimage centos7.9-x86_64-netbooot-compute
+  208  packimage centos7.9-x86_64-netboot-compute
+  209  yum --installroot=$CHROOT install vim
+  210  echo $CHROOT
+  211  yum --installroot=$CHROOT install vim
+  212  echo $CHROOT
+  213  export CHROOT=/install/netboot/centos7.9/x86_64/compute/rootimg/
+  214  echo $CHROOT
+  215  yum --installroot=$CHROOT install vim
+  216  packimage centos7.9-x86_64-netboot-compute
+  217  mkdef -t node xcat-node2 groups=compute,all ip=10.10.10.4 mac=00:0C:29:B4:27:B0 netboot=xnba
+  218  lsdef xcat-node2
+  219  cat /etc/hosts
+  220  makenetworks
+  221  makehosts
+  222  makedhcp -n
+  223  makedhcp-n
+  224  cat /etc/dhcp/dhcpd.conf
+  225  cat /etc/hosts
+  226  tabdump site
+  227  systemctl status dhcpd
+  228  cat /etc/dhcp/dhcpd.conf
+  229  makedns -n
+  230  nodeset compute osimage=centos7.9-x86_64-netboot-compute
+  231  history
+  232  lsdef -t osimage
+  233  lsdef -t osimage centos7.9-x86_64-install-compute
+  234  mkdir -p /install/post/otherpkgs/centos7.6/x86_64
+  235  rm -rf /install/post/otherpkgs/centos7.6/x86_64
+  236  mkdir -p /install/post/otherpkgs/centos7.9/x86_64
+  237  cd /install/post/otherpkgs/centos7.9/x86_64
+  238  createrepo .
+  239  mkdir /install/custom/netboot/centos/
+  240  vim /install/custom/netboot/centos/otherpkgs.pkglist
+  241  chdef -t osimage centos7.9-x86_64-install-compute otherpkgdir=/install/post/otherpkgs/centos7.9/x86_64 otherpkglist=/install/custom/netboot/centos/otherpkgs.pkglist
+  242  vim /install/custom/partitionfile
+  243  chdef -t osimage -o centos7.9-x86_64-install-compute partitionfile=/install/custom/partitionfile
+  244  chdef -t osimage -o centos7.9-x86_64-install-compute synclists=/install/custom/netboot/centos/login.synclist
+  245  vim /install/custom/netboot/centos/login.synclist
+  246  vim /opt/xcat/share/xcat/install/centos/compute.centos7.tmpl
+  247  lsdef -t osimage
+  248  packimage centos7.9-x86_64-install-compute
+  249  vim /install/custom/netboot/centos/login.synclist
+  250  vim /opt/xcat/share/xcat/install/centos/compute.centos7.tmpl
+  251  cat /etc/hosts
+  252  mkdef -t node xcat-stateful groups=compute,all ip=10.10.10.5 mac=00:0C:29:A5:76:61 netboot=xnba
+  253  lsdef xcat-stateful
+  254  vim /install/postscripts/remoteshell 
+  255  makehosts
+  256  makedns -n
+  257  makenetworks
+  258  makedhcp -n
+  259  tabdump site
+  260  nodeset compute osimage=centos7.9-x86_64-install-compute
+  261  systemctl status dhcpd
+  262  systemctl start dhcpd
+  263  ip a
+  264  ifup ens34
+  265  systemctl start dhcpd
+  266  systemctl status dhcpd
+  267  systemctl restart dhcpd
+  268  ip a
+  269  nodeset compute osimage=centos7.9-x86_64-install-compute
+  270  systemctl enable dhcpd
+  271  systemctl status dhcpd
+  272  systemctl restart dhcpd
+  273  systemctl restart dhcpd.service
+  274  systemctl status dhcpd.service
+  275  sudo dhcpd -t -cf /etc/dhcp/dhcpd.conf
+  276  dhcpd -t -cf /etc/dhcp/dhcpd.conf
+  277  sudo journalctl -u dhcpd.service
+  278  nmtui
+  279  makedhcp -n
+  280  rebot
+  281  reboot
+  282  python -c 'import crypt,getpass; \
+  283  print(crypt.crypt(getpass.getpass(), \
+  284  crypt.mksalt(crypt.METHOD_SHA512)))'
+  285  ls
+  286  ll centos.iso 
+  287  cd centos.iso
+  288  ip a
+  289  systemctl status dhcpd
+  290  systemctl restart dhcpd
+  291  systemctl status dhcpd
+  292  systemctl enable dhcpd
+  293  nodeset compute osimage=centos7.9-x86_64-install-compute
+  294  cd /install/post/otherpkgs/centos7.9/x86_64/
+  295  vim /install/custom/netboot/centos/login.synclist
+  296  vim /opt/xcat/share/xcat/install/centos/compute.centos7.tmpl
+  297  vim /install/postscripts/otherpkgs
+  298  mkdef -t node xcat-stateful groups=compute,all ip=10.10.10.5 mac=00:0C:29:A5:76:61 netboot=xnba
+  299* 
+  300  makenetworks
+  301* 
+  302  makedns
+  303  nodeset compute osimage=centos7.9-x86_64-install-compute
